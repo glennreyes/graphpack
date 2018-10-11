@@ -1,0 +1,29 @@
+{
+  "name": "graphpack",
+  "version": "0.0.1-4",
+  "description": "☄️ A minimalistic zero-config GraphQL server",
+  "license": "MIT",
+  "bin": {
+    "graphpack": "./bin/graphpack"
+  },
+  "main": "server",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "apollo-server": "2.0.0",
+    "babel-loader": "^8.0.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "nodemon": "^1.18.4",
+    "ramda": "^0.25.0",
+    "webpack": "^4.20.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "husky": "^1.0.1",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
+  }
+}
