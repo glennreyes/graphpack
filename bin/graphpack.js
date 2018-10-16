@@ -3,7 +3,6 @@ const nodemon = require('nodemon');
 const path = require('path');
 const { once } = require('ramda');
 const webpack = require('webpack');
-const paths = require('../config/paths');
 const webpackConfig = require('../config/webpack.config');
 
 const compiler = webpack(webpackConfig);
