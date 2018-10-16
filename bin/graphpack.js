@@ -35,6 +35,5 @@ const createProductionBuild = () => {
 };
 
 require('yargs')
-  .command(['$0', 'dev'], 'Run development mode', {}, startDevServer)
-  .command('build', 'Create a production build', {}, createProductionBuild)
-  .argv;
+  .command(['$0', 'dev'], 'Start graphpack dev server', {}, startDevServer)
+  .command('build', 'Create production build', {}, createProductionBuild).argv;
