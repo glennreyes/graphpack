@@ -1,5 +1,6 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
@@ -44,7 +45,10 @@ module.exports = {
     path: path.join(process.cwd(), './build'),
     sourceMapFilename: '[name].map',
   },
-  plugins: [new FriendlyErrorsWebpackPlugin({ clearConsole: false })],
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+    new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+  ],
   resolve: {
     alias: { __GRAPHPACK_USER_SRC__: path.resolve(process.cwd(), 'src') },
     extensions: ['.wasm', '.js', '.mjs', '.json', '.graphql'],
