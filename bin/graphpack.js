@@ -15,7 +15,7 @@ const startDevServer = () => {
     webpackConfig.watchOptions,
     once((error, stats) => {
       if (error || stats.hasErrors()) {
-        throw Error(error || stats.errors);
+        throw Error(error || stats.toJson().errors);
       }
 
       nodemon({ script: serverPaths[0], watch: serverPaths }).on(
@@ -29,7 +29,7 @@ const startDevServer = () => {
 const createProductionBuild = () => {
   compiler.run((error, stats) => {
     if (error || stats.hasErrors()) {
-      throw Error(error || stats.errors);
+      throw Error(error || stats.toJson().errors);
     }
   });
 };
