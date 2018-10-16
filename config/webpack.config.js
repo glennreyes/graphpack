@@ -2,8 +2,6 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
-console.log(require.resolve('babel-loader'));
-
 module.exports = {
   entry: {
     // We take care of setting up the server under ./server.js
@@ -28,7 +26,7 @@ module.exports = {
             options: {
               babelrc: true,
               cacheDirectory: true,
-              presets: [require.resolve('../babel')],
+              presets: [require.resolve('../babel.config')],
             },
           },
         ],
