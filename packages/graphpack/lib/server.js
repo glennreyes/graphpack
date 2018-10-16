@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server';
+import { once } from 'ramda';
 import { config, context, resolvers, typeDefs } from './srcFiles';
 
 if (!(resolvers && Object.keys(resolvers).length > 0)) {
@@ -7,8 +8,21 @@ if (!(resolvers && Object.keys(resolvers).length > 0)) {
   );
 }
 
+let options = {};
+
+if (config) {
+  // Renaming to avoid shadowing
+  const {
+    context: _context,
+    resolvers: _resolvers,
+    typeDefs: _typeDefs,
+    ...rest
+  } = config;
+  options = rest;
+}
+
 const server = new ApolloServer({
-  ...config,
+  ...options,
   context,
   typeDefs,
   resolvers,
