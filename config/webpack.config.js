@@ -47,13 +47,13 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new webpack.EnvironmentPlugin({ NODE_ENV: 'development', DEBUG: false }),
+    new webpack.EnvironmentPlugin({
+      DEBUG: false,
+      GRAPHPACK_SRC_DIR: path.resolve(process.cwd(), 'src'),
+      NODE_ENV: 'development',
+    }),
     new FriendlyErrorsWebpackPlugin(),
   ],
-  resolve: {
-    alias: { __GRAPHPACK_USER_SRC__: path.resolve(process.cwd(), 'src') },
-    extensions: ['.wasm', '.js', '.mjs', '.json', '.graphql'],
-  },
   stats: 'minimal',
   target: 'node',
 };
