@@ -236,7 +236,20 @@ For custom configuration you can create a `graphpack` config file in [cosmiconfi
 
 ### Customize Webpack configuration
 
-To extend webpack, you can define a function that extends its config via `graphpack.config.js`.
+To extend webpack, you can define a function that extends its config via the config file:
+
+```js
+// graphpack.config.js
+module.exports = {
+  webpack: ({ config, webpack }) => {
+    // Add customizations to config
+    // Important: return the modified config
+    return config;
+  },
+};
+```
+
+> Note that this file is not going through babel transformation.
 
 ## Acknowledgements
 

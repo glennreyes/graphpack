@@ -1,4 +1,5 @@
 const cosmiconfig = require('cosmiconfig');
+const webpack = require('webpack');
 const defaultConfig = require('./webpack.config');
 
 const explorer = cosmiconfig('graphpack').search();
@@ -12,7 +13,7 @@ const loadWebpackConfig = async () => {
     : {};
 
   if (typeof userConfig.webpack === 'function') {
-    return userConfig.webpack(defaultConfig);
+    return userConfig.webpack({ config: defaultConfig, webpack });
   }
 
   return defaultConfig;
