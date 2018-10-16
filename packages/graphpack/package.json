@@ -8,6 +8,11 @@
   "bin": {
     "graphpack": "./bin/graphpack.js"
   },
+  "files": [
+    "bin",
+    "config",
+    "lib"
+  ],
   "main": "lib/server",
   "dependencies": {
     "@babel/core": "^7.1.2",
