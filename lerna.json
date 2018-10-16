@@ -1,12 +1,10 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "1.0.0-alpha.0",
   "npmClient": "yarn",
   "command": {
-    "run": {
-      "npmClient": "yarn"
+    "publish": {
+      "npmClient": "npm"
     }
   }
 }
