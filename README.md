@@ -1,40 +1,35 @@
-# [Graphpack](https://codesandbox.io/s/k3qrkl8qlv)
+<div align="center">
+  <h1>Graphpack</h1>
 
 ☄️ A minimalistic zero-config GraphQL server
 
 Check out the [demo](https://codesandbox.io/s/k3qrkl8qlv) on CodeSandbox: https://codesandbox.io/s/k3qrkl8qlv
 
-## What is included
+</div>
 
-Graphpack utilizes [`webpack`](https://github.com/webpack/webpack)with [`nodemon`](https://github.com/remy/nodemon) and lets you create GraphQL servers with zero configuration. It uses [`Apollo Server`](https://github.com/apollographql/apollo-server) under the hood, so we get features like [GraphQL Playground](https://github.com/prisma/graphql-playground), [GraphQL Imports](https://github.com/prisma/graphql-import) and many more right out of the box.
+<hr>
 
-- 📦 **Zero-config** out of the box experience
-- 🚦 Built-in **Live reload** and automatic recompilation
+## What is included?
+
+Graphpack utilizes [`webpack`](https://github.com/webpack/webpack) with [`nodemon`](https://github.com/remy/nodemon) and lets you create GraphQL servers with zero configuration. It uses [`Apollo Server`](https://github.com/apollographql/apollo-server) under the hood, so we get features like [GraphQL Playground](https://github.com/prisma/graphql-playground), [GraphQL Imports](https://github.com/prisma/graphql-import) and many more right out of the box.
+
+- 📦 **Zero-config** out of the box
+- 🚦 Built-in **Live reload**
 - 🚨 Super-friendly error messages
-- 🎮 GraphQL **Playground** IDE
+- 🎮 **GraphQL Playground** IDE
 - ⭐️ **GraphQL imports** in Schema Definition Language
 - 🔥 [**Blazing fast**](https://twitter.com/acdlite/status/974390255393505280) bundle times
-- ⚡️ **ES module imports** thanks to [Babel](https://github.com/babel/babel)
+- ⚡️ **ES module imports** and dynamic `import()`'s thanks to [Babel](https://github.com/babel/babel)
 
-## Install
-
-With yarn:
+## Install & usage
 
 ```
 yarn add --dev graphpack
 ```
 
-With npm:
+### Add schema and resolvers
 
-```
-npm install --save-dev graphpack
-```
-
-## Usage
-
-### Add entry files: `src/schema.graphql` & `src/resolvers.js`
-
-Add your type definitions under `src/schema.graphql` and add some example types in [SDL](https://graphql.org/learn/schema/#type-language):
+Add `src/schema.graphql` and add some example types in [SDL](https://graphql.org/learn/schema/#type-language):
 
 ```graphql
 type Query {
@@ -42,7 +37,7 @@ type Query {
 }
 ```
 
-Add your resolvers under `src/resolvers.js`:
+Add `src/resolvers.js`:
 
 ```js
 const resolvers = {
@@ -54,52 +49,62 @@ const resolvers = {
 export default resolvers;
 ```
 
-> Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structure:
->
-> - `src/resolvers.js`
-> - `src/resolvers/index.js`
-> - `src/schema.js`
-> - `src/schema/index.js`
-> - `src/schema.graphql`
-> - `src/schema/index.graphql`
+### Setup `package.json` run scripts
 
-### Setup npm run scripts
-
-Add following run scripts to your `package.json`:
+Add following scripts to your `package.json`:
 
 ```json
   "scripts": {
-    "build": "graphpack build",
-    "dev": "graphpack"
+    "dev": "graphpack",
+    "build": "graphpack build"
   },
 ```
 
-### Start dev server:
+### Start development server
+
+To start the development server, simply run:
 
 ```sh
 yarn dev
 ```
 
-### Create a production build
+### Create production build
+
+To create a production ready build run following command:
 
 ```sh
 yarn build
 ```
 
-### Start production build
+### Use production build
 
-Simply run the build command and start the app
+Add following script that executes our build:
+
+```json
+  "scripts": {
+    "start": "node ./build/index.js"
+  },
+```
+
+Following command will run the build and start the app
 
 ```sh
-yarn build
-node ./build/index.js
+yarn start
 ```
+
+> Make sure to create a build before running the start script.
 
 ## CLI Commands
 
 ### `graphpack` (alias `graphpack dev`)
 
-Runs graphpack in development mode.
+Runs graphpack in development mode. After a successful build your output should look something like this:
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="519" alt="graphpack">
+</div>
+
+Graphpack will watch for changes in your `./src` folder and automatically reloads the server.
 
 ### `graphpack build`
 
@@ -109,35 +114,129 @@ Creates a production ready build under the project roots `build` folder.
 
 ## Entry files
 
-tbd
-
 ### `src/resolvers.js` (required)
 
-tbd
+In this file you define all your resolvers:
+
+```js
+// src/resolvers.js
+const resolvers = {
+  Query: {
+    article: (obj, args) => getArticleById(args.id),
+    articles: () => getArticles(),
+  },
+};
+
+export default resolvers;
+```
+
+> You can use any of these folder/file structure:
+>
+> - `src/resolvers.js`
+> - `src/resolvers/index.js`
 
 ### `src/schema.js` (required)
 
-tbd
+Here you define all your GraphQL type definitions:
+
+```graphql
+# src/schema.graphql
+type Article {
+  title: String
+  body: String
+}
+
+type Query {
+  article: Article
+  articles: [Article!]!
+}
+```
+
+Alternatively you can create a `src/schema.js` and use the template literal tag `gql` by [`graphql-tag`](https://github.com/apollographql/graphql-tag):
+
+```js
+// src/schema.js
+import { gql } from 'graphql-tag';
+
+const typeDefs = gql`
+  type Article {
+    title: String
+    body: String
+  }
+
+  type Query {
+    article: Article
+    articles: [Article!]!
+  }
+`;
+
+export default typeDefs;
+```
+
+Note that you need install `graphql-tag` in this case.
+
+> Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structure:
+>
+> - `src/schema.js`
+> - `src/schema/index.js`
+> - `src/schema.graphql`
+> - `src/schema/index.graphql`
 
 ### `src/context.js`
 
-tbd
+Create `src/context.js` and do following:
+
+```js
+const context = req => ({
+  /* context props here */
+});
+
+export default context;
+```
+
+> You can use any of these folder/file structure:
+>
+> - `src/context.js`
+> - `src/context/index.js`
 
 ### `src/config.js`
 
-tbd
+In `src/config.js` you can set further options of your Apollo Server. Refer to the [Apollo Server docs](https://www.apollographql.com/docs/apollo-server/api/apollo-server.html#constructor-options-lt-ApolloServer-gt) for more details about the options.
 
-## Customize configuration
+```js
+// src/config.js
+const IS_DEV = process.env.NODE_ENV !== 'production';
 
-tbd
+const config = {
+  debug: process.env.DEBUG,
+  playground: IS_DEV,
+  introspection: IS_DEV,
+  mocks: IS_DEV,
+  // ...
+};
 
-### Webpack
+export default config;
+```
 
-tbd
+Note that you cannot to set `resolvers`, `typeDefs` or `context` in the config file. In these cases please refer to [entry files](#entry-files).
 
-### Apollo Server
+> You can use any of these folder/file structure:
+>
+> - `src/config.js`
+> - `src/config/index.js`
 
-tbd
+## Custom configuration
+
+For custom configuration you can create a `graphpack` config file in [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) format:
+
+- `graphpack.config.js`
+- `"graphpack"` field in `package.json`
+- `.grahpackrc` in JSON or YAML
+- `.graphpackrc` with the extensions `.json`, `.yaml`, `.yml`, or `.js`
+
+### Customize Webpack configuration
+
+To extend webpack, you can define a function that extends its config via `graphpack.config.js`.
 
 ## Acknowledgements
 
