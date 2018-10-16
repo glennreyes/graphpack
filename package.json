@@ -4,7 +4,7 @@
   "description": "☄️ A minimalistic zero-config GraphQL server",
   "license": "MIT",
   "bin": {
-    "graphpack": "./cli"
+    "graphpack": "./bin/graphpack.js"
   },
   "main": "server",
   "dependencies": {
