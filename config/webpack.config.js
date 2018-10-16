@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [new FriendlyErrorsWebpackPlugin({ clearConsole: false })],
   resolve: {
-    alias: { __GRAPHPACK_SRC__: path.resolve(process.cwd(), 'src') },
+    alias: { __GRAPHPACK_USER_SRC__: path.resolve(process.cwd(), 'src') },
     extensions: ['.wasm', '.js', '.mjs', '.json', '.graphql'],
   },
   stats: 'minimal',
