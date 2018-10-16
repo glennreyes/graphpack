@@ -6,7 +6,7 @@
   "bin": {
     "graphpack": "./bin/graphpack.js"
   },
-  "main": "server",
+  "main": "lib/server",
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
