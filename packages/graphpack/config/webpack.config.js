@@ -6,8 +6,9 @@ const nodeExternals = require('webpack-node-externals');
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  devtool: 'sourcemap',
   entry: {
-    // We take care of setting up the server under ./server.js
+    // We take care of setting up entry file under lib/server.js
     index: ['graphpack'],
   },
   // When bundling with Webpack for the backend you usually don't want to bundle
@@ -40,12 +41,19 @@ module.exports = {
       },
     ],
   },
+  node: {
+    __filename: true,
+    __dirname: true,
+  },
   optimization: { noEmitOnErrors: true },
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.join(process.cwd(), './build'),
     sourceMapFilename: '[name].map',
+  },
+  performance: {
+    hints: false,
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
@@ -54,7 +62,7 @@ module.exports = {
       GRAPHPACK_SRC_DIR: path.resolve(process.cwd(), 'src'),
       NODE_ENV: 'development',
     }),
-    new FriendlyErrorsWebpackPlugin(),
+    new FriendlyErrorsWebpackPlugin({ clearConsole: IS_DEV }),
   ],
   stats: 'minimal',
   target: 'node',
