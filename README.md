@@ -249,6 +249,23 @@ module.exports = {
 };
 ```
 
+### Customize Babel configuration
+
+Add an optional `babel.config.js` to your project root with the following preset
+
+```js
+// babel.config.js
+module.exports = api => {
+  // Cache the returned value forever and don't call this function again
+  api.cache(true);
+
+  return {
+    presets: ['graphpack/babel'],
+    // ... Add your plugins and custom config
+  };
+};
+```
+
 > Note that this file is not going through babel transformation.
 
 ## Acknowledgements

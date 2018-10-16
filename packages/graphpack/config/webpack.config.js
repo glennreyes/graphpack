@@ -1,14 +1,20 @@
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
+const hasBabelRc = fs.existsSync(path.resolve('babel.config.js'));
+
+if (hasBabelRc) {
+  console.info('🐠 Using .babelrc defined in your app root');
+}
 
 module.exports = {
   devtool: 'sourcemap',
   entry: {
-    // We take care of setting up entry file under lib/server.js
+    // We take care of setting up entry file under lib/index.js
     index: ['graphpack'],
   },
   // When bundling with Webpack for the backend you usually don't want to bundle
@@ -30,7 +36,9 @@ module.exports = {
             options: {
               babelrc: true,
               cacheDirectory: true,
-              presets: [require.resolve('babel-preset-graphpack')],
+              presets: hasBabelRc
+                ? undefined
+                : [require.resolve('babel-preset-graphpack')],
             },
           },
         ],
