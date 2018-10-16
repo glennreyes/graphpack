@@ -1,0 +1,9 @@
+{
+  "name": "babel-preset-graphpack",
+  "version": "0.0.0",
+  "description": "Babel preset for Graphpack",
+  "main": "index.js",
+  "repository": "https://github.com/glennreyes/graphpack",
+  "author": "Glenn Reyes <glenn@glennreyes.com>",
+  "license": "MIT"
+}

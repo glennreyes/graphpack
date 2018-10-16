@@ -29,7 +29,7 @@ module.exports = {
             options: {
               babelrc: true,
               cacheDirectory: true,
-              presets: [require.resolve('../babel.config')],
+              presets: [require.resolve('babel-preset-graphpack')],
             },
           },
         ],
