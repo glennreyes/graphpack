@@ -11,7 +11,7 @@
     "@babel/core": "^7.1.2",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
-    "apollo-server": "2.0.0",
+    "apollo-server": "2.1.0",
     "babel-loader": "^8.0.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^0.13.2",
