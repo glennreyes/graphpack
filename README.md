@@ -11,17 +11,17 @@ Check out the [demo](https://codesandbox.io/s/k3qrkl8qlv) on CodeSandbox: https:
 
 ## What is included?
 
-Graphpack utilizes [`webpack`](https://github.com/webpack/webpack) with [`nodemon`](https://github.com/remy/nodemon) and lets you create GraphQL servers with zero configuration. It uses [`Apollo Server`](https://github.com/apollographql/apollo-server) under the hood, so we get features like [GraphQL Playground](https://github.com/prisma/graphql-playground), [GraphQL Imports](https://github.com/prisma/graphql-import) and many more right out of the box.
+Graphpack lets you create GraphQL servers _with zero configuration_. It uses [`webpack`](https://github.com/webpack/webpack) with [`nodemon`](https://github.com/remy/nodemon) and [`Apollo Server`](https://github.com/apollographql/apollo-server) under the hood, so we get features like Live Reloading, GraphQL Playground, GraphQL Imports and many more right out of the box.
 
 - 📦 **Zero-config** out of the box
 - 🚦 Built-in **Live reload**
 - 🚨 Super-friendly error messages
-- 🎮 **GraphQL Playground** IDE
-- ⭐️ **GraphQL imports** in Schema Definition Language
+- 🎮 [**GraphQL Playground**](https://github.com/prisma/graphql-playground) IDE
+- ⭐️ [**GraphQL imports**](https://github.com/prisma/graphql-import) in Schema Definition Language
 - 🔥 [**Blazing fast**](https://twitter.com/acdlite/status/974390255393505280) bundle times
 - ⚡️ **ES module imports** and dynamic `import()`'s thanks to [Babel](https://github.com/babel/babel)
 
-## Install & usage
+## Install & Usage
 
 ```
 yarn add --dev graphpack
@@ -230,8 +230,8 @@ Note that you cannot to set `resolvers`, `typeDefs` or `context` in the config f
 For custom configuration you can create a `graphpack` config file in [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) format:
 
 - `graphpack.config.js`
-- `"graphpack"` field in `package.json`
-- `.grahpackrc` in JSON or YAML
+- `graphpack` field in `package.json`
+- `.graphpackrc` in JSON or YAML
 - `.graphpackrc` with the extensions `.json`, `.yaml`, `.yml`, or `.js`
 
 ### Customize Webpack configuration
