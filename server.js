@@ -1,26 +1,28 @@
 import { ApolloServer } from 'apollo-server';
-import resolvers from '__GRAPHPACK_SRC__/resolvers';
-import typeDefs from '__GRAPHPACK_SRC__/schema';
-// import fs from 'fs';
+import resolvers from '__GRAPHPACK_USER_SRC__/resolvers';
+import typeDefs from '__GRAPHPACK_USER_SRC__/schema';
 
-// console.log(require.resolve('__GRAPHPACK_SRC__/context'));
+const importAll = req => req.keys().map(mod => req(mod).default);
 
-// console.log(fs.existsSync('./src/context'));
-
-// import('__GRAPHPACK_SRC__/context');
-
-// if (fs.existsSync('./src/context')) {
-//   const context = require(fs.existsSync('./src/context')
-//     ? '__GRAPHPACK_SRC__/context'
-//     : './src/context');
-// }
-
-// const context = fs.existsSync('./src/context')
-//   ? require('__GRAPHPACK_SRC__/context')
-//   : undefined;
+// Optionally import modules
+const config = importAll(
+  require.context(
+    '__GRAPHPACK_USER_SRC__',
+    true,
+    /^\.\/(config|config\/index)\.(js|ts)$/,
+  ),
+)[0];
+const context = importAll(
+  require.context(
+    '__GRAPHPACK_USER_SRC__',
+    true,
+    /^\.\/(context|context\/index)\.(js|ts)$/,
+  ),
+)[0];
 
 const server = new ApolloServer({
-  // context,
+  ...config,
+  context,
   typeDefs,
   resolvers,
 });
@@ -28,3 +30,5 @@ const server = new ApolloServer({
 server
   .listen({ port: 4000 })
   .then(({ url }) => console.log(`🚀 Server ready at ${url}`));
+
+export default server;
