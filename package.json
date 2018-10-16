@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.1.0",
     "apollo-server": "2.1.0",
     "babel-loader": "^8.0.4",
+    "cosmiconfig": "^5.0.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",

@@ -3,6 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
+const IS_DEV = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: {
     // We take care of setting up the server under ./server.js
@@ -12,7 +14,7 @@ module.exports = {
   // its node_modules dependencies. This creates an externals function that
   // ignores node_modules when bundling in Webpack.
   externals: [nodeExternals({ whitelist: [/^graphpack$/] })],
-  mode: 'development',
+  mode: IS_DEV ? 'development' : 'production',
   module: {
     rules: [
       {
