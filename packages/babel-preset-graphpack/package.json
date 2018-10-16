@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-graphpack",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Babel preset for Graphpack",
   "main": "index.js",
   "repository": "https://github.com/glennreyes/graphpack",
