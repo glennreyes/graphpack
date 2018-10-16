@@ -47,8 +47,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG']),
-    new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+    new webpack.EnvironmentPlugin({ NODE_ENV: 'development', DEBUG: false }),
+    new FriendlyErrorsWebpackPlugin(),
   ],
   resolve: {
     alias: { __GRAPHPACK_USER_SRC__: path.resolve(process.cwd(), 'src') },
