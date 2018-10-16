@@ -1,6 +1,6 @@
 {
   "name": "graphpack",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "☄️ A minimalistic zero-config GraphQL server",
   "author": "Glenn Reyes <glenn@glennreyes.com>",
   "repository": "https://github.com/glennreyes/graphpack",
@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.1.0",
     "apollo-server": "2.1.0",
     "babel-loader": "^8.0.4",
-    "babel-preset-graphpack": "^1.0.0-alpha.0",
+    "babel-preset-graphpack": "^1.0.0-alpha.1",
     "cosmiconfig": "^5.0.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^0.13.2",
