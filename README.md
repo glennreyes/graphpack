@@ -27,7 +27,7 @@ Graphpack lets you create GraphQL servers _with zero configuration_. It uses [`w
 yarn add --dev graphpack
 ```
 
-### Add schema and resolvers
+### Add `src/schema.graphql` and `src/resolvers.js`
 
 Add `src/schema.graphql` and add some example types in [SDL](https://graphql.org/learn/schema/#type-language):
 
