@@ -29,7 +29,13 @@ yarn add --dev graphpack
 
 ### Add `src/schema.graphql` and `src/resolvers.js`
 
-Add `src/schema.graphql` and add some example types in [SDL](https://graphql.org/learn/schema/#type-language):
+```
+src
+├── resolvers.js
+└── schema.graphql
+```
+
+In your schema and add some sample types in [SDL](https://graphql.org/learn/schema/#type-language):
 
 ```graphql
 type Query {
@@ -37,7 +43,7 @@ type Query {
 }
 ```
 
-Add `src/resolvers.js`:
+In `src/resolvers.js`:
 
 ```js
 const resolvers = {
