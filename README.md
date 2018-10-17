@@ -3,7 +3,7 @@
 
 ☄️ A minimalistic zero-config GraphQL server
 
-Check out the [demo](https://codesandbox.io/s/k3qrkl8qlv) on CodeSandbox: https://codesandbox.io/s/k3qrkl8qlv
+Check out the demo on CodeSandbox: https://codesandbox.io/s/k3qrkl8qlv
 
 </div>
 
