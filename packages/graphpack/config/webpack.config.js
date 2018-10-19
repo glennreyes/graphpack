@@ -47,6 +47,10 @@ module.exports = {
         test: /\.mjs$/,
         type: 'javascript/auto',
       },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+      },
     ],
   },
   node: {
@@ -72,6 +76,9 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin({ clearConsole: IS_DEV }),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   stats: 'minimal',
   target: 'node',
 };
