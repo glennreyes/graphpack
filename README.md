@@ -224,7 +224,7 @@ const config = {
 export default config;
 ```
 
-Note that you cannot to set `resolvers`, `typeDefs` or `context` in the config file. In these cases please refer to [entry files](#entry-files).
+Note that you cannot set `resolvers`, `typeDefs` or `context` in the config file. In these cases please refer to [entry files](#entry-files).
 
 > You can use any of these folder/file structure:
 >
