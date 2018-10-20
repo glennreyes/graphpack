@@ -37,14 +37,11 @@ const startGraphPack = async () => {
   const compiler = webpack(config);
 
   require('yargs')
-    .command(['$0', 'dev'], 'Start graphpack dev server', {}, (yargs) => {
+    .command(['$0', 'dev'], 'Start graphpack dev server', {}, yargs => {
       process.env.PORT = yargs.port || yargs.p || yargs.PORT || yargs.P;
       startDevServer({ compiler, config });
     })
-    .command('build', 'Create production build', {}, (yargs) => {
-      process.env.PORT = yargs.port || yargs.p || yargs.PORT || yargs.P;
-      createProductionBuild({ compiler });
-    }).argv;
+    .command('build', 'Create production build', {}, () => createProductionBuild({ compiler })).argv;
 };
 
 startGraphPack();
