@@ -12,7 +12,7 @@ if (hasBabelRc) {
 }
 
 module.exports = {
-  devtool: 'sourcemap',
+  devtool: IS_DEV ? 'sourcemap': 'none',
   entry: {
     // We take care of setting up entry file under lib/index.js
     index: ['graphpack'],
@@ -58,7 +58,7 @@ module.exports = {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.join(process.cwd(), './build'),
-    sourceMapFilename: '[name].map',
+    sourceMapFilename: '[name].map'
   },
   performance: {
     hints: false,
