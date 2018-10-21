@@ -255,6 +255,8 @@ module.exports = {
 };
 ```
 
+> Note that this file is not going through babel transformation.
+
 ### Customize Babel configuration
 
 Add an optional `babel.config.js` to your project root with the following preset
@@ -271,8 +273,6 @@ module.exports = api => {
   };
 };
 ```
-
-> Note that this file is not going through babel transformation.
 
 ## Acknowledgements
 
