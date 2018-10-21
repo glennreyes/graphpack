@@ -141,7 +141,7 @@ export default resolvers;
 > - `src/resolvers.js`
 > - `src/resolvers/index.js`
 
-### `src/schema.js` (required)
+### `src/schema.graphql` (required)
 
 Here you define all your GraphQL type definitions:
 
