@@ -36,7 +36,7 @@ const createProductionBuild = ({ compiler }) => {
 const generateSchemaTypings = (watch = false) => {
   const srcPath = process.env.GRAPHPACK_SRC_DIR || `${process.cwd()}/src/`;
   const schemaFilesRegex = path.join(srcPath, './**/*.graphql');
-  
+
   generate({
     schema: schemaFilesRegex,
     template: 'graphql-codegen-typescript-template',
@@ -45,7 +45,7 @@ const generateSchemaTypings = (watch = false) => {
     watch,
     overwrite: true,
   });
-}
+};
 
 const startGraphPack = async () => {
   const config = await loadWebpackConfig();
