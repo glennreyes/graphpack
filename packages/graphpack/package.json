@@ -25,6 +25,8 @@
     "cosmiconfig": "^5.0.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^0.13.2",
+    "graphql-code-generator": "^0.12.6",
+    "graphql-codegen-typescript-template": "^0.12.6",
     "graphql-tag": "^2.9.2",
     "nodemon": "^1.18.4",
     "ramda": "^0.25.0",
