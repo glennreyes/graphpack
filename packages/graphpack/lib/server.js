@@ -16,6 +16,7 @@ if (config) {
     context: _context,
     resolvers: _resolvers,
     typeDefs: _typeDefs,
+    applyMiddleware,
     ...rest
   } = config;
   options = rest;
@@ -27,6 +28,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
+// Apply user provided middlewares
+server.applyMiddleware(applyMiddleware);
 
 server
   .listen({ port: ((config.PORT || config.port) || (process.env.PORT || 4000)) })
