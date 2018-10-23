@@ -218,6 +218,7 @@ const config = {
   playground: IS_DEV,
   introspection: IS_DEV,
   mocks: IS_DEV,
+  applyMiddleware: { app, path }, // app is from an existing (Express/Hapi,...) app
   // ...
 };
 
