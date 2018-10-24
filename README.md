@@ -116,8 +116,6 @@ Graphpack will watch for changes in your `./src` folder and automatically reload
 
 Creates a production-ready build under the project roots `build` folder.
 
-> Make sure to run `yarn build` before.
-
 ## Entry files
 
 ### `src/resolvers.js` (required)
