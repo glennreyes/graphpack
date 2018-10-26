@@ -107,7 +107,7 @@ yarn start
 Runs graphpack in development mode. After a successful build your output should look something like this:
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="519" alt="graphpack">
+  <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="520" alt="graphpack">
 </div>
 
 Graphpack will watch for changes in your `./src` folder and automatically reload the server.
