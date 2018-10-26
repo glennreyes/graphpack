@@ -41,7 +41,9 @@ const startGraphPack = async () => {
       process.env.PORT = yargs.port || yargs.p || yargs.PORT || yargs.P;
       startDevServer({ compiler, config });
     })
-    .command('build', 'Create production build', {}, () => createProductionBuild({ compiler })).argv;
+    .command('build', 'Create production build', {}, () =>
+      createProductionBuild({ compiler }),
+    ).argv;
 };
 
 startGraphPack();
