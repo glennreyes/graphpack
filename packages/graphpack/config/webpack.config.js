@@ -12,7 +12,7 @@ if (hasBabelRc) {
 }
 
 module.exports = {
-  devtool: IS_DEV ? 'sourcemap': 'none',
+  devtool: IS_DEV ? 'sourcemap' : 'none',
   entry: {
     // We take care of setting up entry file under lib/index.js
     index: ['graphpack'],
@@ -29,7 +29,7 @@ module.exports = {
         use: 'graphql-tag/loader',
       },
       {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         use: [
           {
             loader: require.resolve('babel-loader'),
@@ -58,7 +58,7 @@ module.exports = {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.join(process.cwd(), './build'),
-    sourceMapFilename: '[name].map'
+    sourceMapFilename: '[name].map',
   },
   performance: {
     hints: false,
@@ -72,6 +72,9 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin({ clearConsole: IS_DEV }),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   stats: 'minimal',
   target: 'node',
 };

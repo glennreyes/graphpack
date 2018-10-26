@@ -30,12 +30,12 @@ const server = new ApolloServer({
 });
 
 // Apply user provided middlewares
-if (applyMiddleware && applyMiddleware.app) {
+if (config && applyMiddleware && applyMiddleware.app) {
   server.applyMiddleware(applyMiddleware);
 }
 
 server
-  .listen({ port: config.PORT || config.port || (process.env.PORT || 4000) })
+  .listen({ port: Number(process.env.PORT) || config ? config.port : 4000 })
   .then(({ url }) => console.log(`🚀 Server ready at ${url}`));
 
 export default server;

@@ -1,9 +1,16 @@
 {
   "name": "babel-preset-graphpack",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Babel preset for Graphpack",
   "main": "index.js",
   "repository": "https://github.com/glennreyes/graphpack",
   "author": "Glenn Reyes <glenn@glennreyes.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "typescript": "^3.1.3"
+  }
 }
