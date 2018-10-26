@@ -17,8 +17,6 @@
   "main": "lib/server",
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
     "apollo-server": "2.1.0",
     "babel-loader": "^8.0.4",
     "babel-preset-graphpack": "^1.0.0-alpha.3",
