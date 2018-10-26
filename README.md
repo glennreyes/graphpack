@@ -35,7 +35,7 @@ src
 └── schema.graphql
 ```
 
-In your schema and add some sample types in [SDL](https://graphql.org/learn/schema/#type-language):
+In your schema, add some sample types in [SDL](https://graphql.org/learn/schema/#type-language):
 
 ```graphql
 type Query {
@@ -76,7 +76,7 @@ yarn dev
 
 ### Create production build
 
-To create a production ready build run following command:
+To create a production-ready build run following command:
 
 ```sh
 yarn build
@@ -110,13 +110,11 @@ Runs graphpack in development mode. After a successful build your output should 
   <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="519" alt="graphpack">
 </div>
 
-Graphpack will watch for changes in your `./src` folder and automatically reloads the server.
+Graphpack will watch for changes in your `./src` folder and automatically reload the server.
 
 ### `graphpack build`
 
-Creates a production ready build under the project roots `build` folder.
-
-> Make sure to run `yarn build` before.
+Creates a production-ready build under the project roots `build` folder.
 
 ## Entry files
 
@@ -181,7 +179,7 @@ export default typeDefs;
 
 Note that you need install `graphql-tag` in this case.
 
-> Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structure:
+> Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structures:
 >
 > - `src/schema.js`
 > - `src/schema/index.js`
@@ -200,7 +198,7 @@ const context = req => ({
 export default context;
 ```
 
-> You can use any of these folder/file structure:
+> You can use any of these folder/file structures:
 >
 > - `src/context.js`
 > - `src/context/index.js`
@@ -218,6 +216,7 @@ const config = {
   playground: IS_DEV,
   introspection: IS_DEV,
   mocks: IS_DEV,
+  applyMiddleware: { app, path }, // app is from an existing (Express/Hapi,...) app
   // ...
 };
 
@@ -259,7 +258,7 @@ module.exports = {
 
 ### Customize Babel configuration
 
-Add an optional `babel.config.js` to your project root with the following preset
+Add an optional `babel.config.js` to your project root with the following preset:
 
 ```js
 // babel.config.js
