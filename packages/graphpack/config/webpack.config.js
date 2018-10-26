@@ -47,10 +47,6 @@ module.exports = {
         test: /\.mjs$/,
         type: 'javascript/auto',
       },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-      },
     ],
   },
   node: {
