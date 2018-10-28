@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server';
-import { config, context, resolvers, typeDefs } from './srcFiles';
+import { context, resolvers, typeDefs } from './srcFiles';
 import { loadServerConfig } from '../config';
 
 if (!(resolvers && Object.keys(resolvers).length > 0)) {
