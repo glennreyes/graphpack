@@ -20,6 +20,6 @@ export const typeDefs = importFirst(
   require.context(
     process.env.GRAPHPACK_SRC_DIR,
     true,
-    /^\.\/(schema|schema\/index)\.(graphql|js|ts)$/,
+    /^\.\/(schema|schema\/index)\.(gql|graphql|js|ts)$/,
   ),
 );

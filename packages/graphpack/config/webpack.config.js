@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.graphql/,
+        test: /\.(gql|graphql)/,
         use: 'graphql-tag/loader',
       },
       {
@@ -73,7 +73,7 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin({ clearConsole: IS_DEV }),
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.js'],
   },
   stats: 'minimal',
   target: 'node',
