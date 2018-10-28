@@ -38,7 +38,10 @@ const startGraphPack = async () => {
 
   require('yargs')
     .command(['$0', 'dev'], 'Start graphpack dev server', {}, yargs => {
-      process.env.PORT = yargs.port || yargs.p || yargs.PORT || yargs.P;
+      if (yargs.port || yargs.p || yargs.PORT || yargs.P) {
+        process.env.PORT = yargs.port || yargs.p || yargs.PORT || yargs.P;
+      }
+
       startDevServer({ compiler, config });
     })
     .command('build', 'Create production build', {}, () =>
