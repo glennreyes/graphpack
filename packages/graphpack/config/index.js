@@ -4,6 +4,17 @@ const defaultConfig = require('./webpack.config');
 
 const explorer = cosmiconfig('graphpack').search();
 
+const loadServerConfig = async () => {
+  const result = await explorer;
+  const userConfig = result
+    ? typeof result.config === 'function'
+      ? result.config(defaultConfig.mode)
+      : result.config
+    : {};
+
+  return userConfig.server;
+};
+
 const loadWebpackConfig = async () => {
   const result = await explorer;
   const userConfig = result
@@ -19,4 +30,5 @@ const loadWebpackConfig = async () => {
   return { ...defaultConfig, ...userConfig.webpack };
 };
 
+exports.loadServerConfig = loadServerConfig;
 exports.loadWebpackConfig = loadWebpackConfig;
