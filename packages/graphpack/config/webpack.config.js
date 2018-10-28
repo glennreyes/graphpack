@@ -8,7 +8,7 @@ const IS_DEV = process.env.NODE_ENV !== 'production';
 const hasBabelRc = fs.existsSync(path.resolve('babel.config.js'));
 
 if (hasBabelRc) {
-  console.info('🐠 Using .babelrc defined in your app root');
+  console.info('🐠 Using babel.config.js defined in your app root');
 }
 
 module.exports = {
