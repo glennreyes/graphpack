@@ -177,7 +177,7 @@ const typeDefs = gql`
 export default typeDefs;
 ```
 
-Note that you need install `graphql-tag` in this case.
+Note that in this case you will need to install `graphql-tag`.
 
 > Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structures:
 >
@@ -203,41 +203,74 @@ export default context;
 > - `src/context.js`
 > - `src/context/index.js`
 
-### `src/config.js`
+## Custom configuration
 
-In `src/config.js` you can set further options of your Apollo Server. Refer to the [Apollo Server docs](https://www.apollographql.com/docs/apollo-server/api/apollo-server.html#constructor-options-lt-ApolloServer-gt) for more details about the options.
+For custom configuration you can create a `graphpack` config file in [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) format:
+
+- `graphpack.config.js` (recommended)
+- `graphpack` field in `package.json`
+- `.graphpackrc` in JSON or YAML
+- `.graphpackrc` with the extensions `.json`, `.yaml`, `.yml`, or `.js`
+
+> Note that the config file (eg. graphpack.config.js) is not going through babel transformation.
+
+### Customize Server configuration
+
+In your `graphpack.config.js` configure your server as follows:
 
 ```js
-// src/config.js
-const IS_DEV = process.env.NODE_ENV !== 'production';
+// graphpack.config.js
+module.exports = {
+  server: {
+    introspection: false,
+    playground: false,
+    applyMiddleware: { app, path }, // app is from an existing (Express/Hapi,...) app
+  },
+};
+```
 
-const config = {
-  debug: process.env.DEBUG,
-  playground: IS_DEV,
-  introspection: IS_DEV,
-  mocks: IS_DEV,
-  applyMiddleware: { app, path }, // app is from an existing (Express/Hapi,...) app
-  // ...
+Return config as a function to get the env variable:
+
+```js
+// graphpack.config.js
+
+// `mode` will be either `development` or `production`
+module.exports = (mode) => {
+  const IS_DEV = mode !== 'production';
+
+  server: {
+    introspection: IS_DEV,
+    playground: IS_DEV,
+    mocks: IS_DEV,
+    mocks: IS_DEV,
+    // ...
+  }
 };
 
 export default config;
 ```
 
-Note that you cannot set `resolvers`, `typeDefs` or `context` in the config file. In these cases please refer to [entry files](#entry-files).
+Refer to the [Apollo Server docs](https://www.apollographql.com/docs/apollo-server/api/apollo-server.html#constructor-options-lt-ApolloServer-gt) for more details about the options.
 
-> You can use any of these folder/file structure:
->
-> - `src/config.js`
-> - `src/config/index.js`
+> Note that it's not possible to set `resolvers`, `typeDefs` or `context` in the config file. For this please refer to [entry files](#entry-files).
 
-## Custom configuration
+#### Applying middlewares to the server
 
-For custom configuration you can create a `graphpack` config file in [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) format:
+In your `graphpack.config.js` add your applyMiddleware field as follows:
 
-- `graphpack.config.js`
-- `graphpack` field in `package.json`
-- `.graphpackrc` in JSON or YAML
-- `.graphpackrc` with the extensions `.json`, `.yaml`, `.yml`, or `.js`
+```js
+// graphpack.config.js
+const express = require('express');
+const app = express();
+
+module.exports = {
+  server: {
+    introspection: false,
+    playground: false,
+    applyMiddleware: { app },
+  },
+};
+```
 
 ### Customize Webpack configuration
 
@@ -253,8 +286,6 @@ module.exports = {
   },
 };
 ```
-
-> Note that this file is not going through babel transformation.
 
 ### Customize Babel configuration
 
