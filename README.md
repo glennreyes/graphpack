@@ -18,6 +18,7 @@ Graphpack lets you create GraphQL servers _with zero configuration_. It uses [`w
 - 🚨 Super-friendly error messages
 - 🎮 [**GraphQL Playground**](https://github.com/prisma/graphql-playground) IDE
 - ⭐️ [**GraphQL imports**](https://github.com/prisma/graphql-import) in Schema Definition Language
+- 💖 [TypeScript](https://www.typescriptlang.org/) support
 - 🔥 [**Blazing fast**](https://twitter.com/acdlite/status/974390255393505280) bundle times
 - ⚡️ **ES module imports** and dynamic `import()`'s thanks to [Babel](https://github.com/babel/babel)
 
