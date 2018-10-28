@@ -46,7 +46,12 @@ const startServer = async () => {
   }
 
   server
-    .listen({ port: Number(process.env.PORT) || config ? config.port : 4000 })
+    .listen({
+      port:
+        Number(process.env.PORT) || (serverConfig && serverConfig.port)
+          ? serverConfig.port
+          : 4000,
+    })
     .then(({ url }) => console.log(`🚀 Server ready at ${url}`));
 };
 

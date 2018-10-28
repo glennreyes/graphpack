@@ -12,7 +12,7 @@ const loadServerConfig = async () => {
       : result.config
     : {};
 
-  return userConfig.server;
+  return { port: Number(process.env.PORT), ...userConfig.server };
 };
 
 const loadWebpackConfig = async () => {
