@@ -16,7 +16,7 @@ const loadWebpackConfig = async () => {
     return userConfig.webpack({ config: defaultConfig, webpack });
   }
 
-  return defaultConfig;
+  return { ...defaultConfig, ...userConfig.webpack };
 };
 
 exports.loadWebpackConfig = loadWebpackConfig;
