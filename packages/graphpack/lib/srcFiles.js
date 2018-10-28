@@ -2,13 +2,6 @@ export const importFirst = req =>
   req.keys().map(mod => req(mod).default || req(mod))[0];
 
 // Optionally import modules
-export const config = importFirst(
-  require.context(
-    process.env.GRAPHPACK_SRC_DIR,
-    true,
-    /^\.\/(config|config\/index)\.(js|ts)$/,
-  ),
-);
 export const context = importFirst(
   require.context(
     process.env.GRAPHPACK_SRC_DIR,
