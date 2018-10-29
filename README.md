@@ -310,6 +310,34 @@ module.exports = api => {
 Graphpack was heavily inspired by:
 
 - [backpack](https://github.com/jaredpalmer/backpack)
+- [create-react-app](https://github.com/facebook/create-react-app)
+- [next.js](https://github.com/zeit/next.js)
+
+## Contributors
+
+This project exists thanks to all the people who contribute.
+<a href="https://github.com/glennreyes/graphpack/graphs/contributors"><img src="https://opencollective.com/graphpack/contributors.svg?width=890" title="contributors" alt="contributors" /></a>
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/graphpack#backer)]
+
+<a href="https://opencollective.com/graphpack#backers" target="_blank"><img src="https://opencollective.com/graphpack/backers.svg?width=890"></a>
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/graphpack#sponsor)]
+
+<a href="https://opencollective.com/graphpack/sponsor/0/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/1/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/2/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/3/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/4/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/5/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/6/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/7/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/8/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/graphpack/sponsor/9/website" target="_blank"><img src="https://opencollective.com/graphpack/sponsor/9/avatar.svg"></a>
 
 ## License
 
