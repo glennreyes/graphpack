@@ -1,6 +1,6 @@
 ![img](https://github.com/richardbmx/graphpack/blob/master/logo117.png?raw=true)
 <div align="center">
-  <h1>Graphpack</h1>
+ 
 
 ☄️ A minimalistic zero-config GraphQL server
 
