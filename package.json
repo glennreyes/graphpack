@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "ts-loader": "^5.2.2"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
