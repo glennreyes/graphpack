@@ -94,7 +94,7 @@ Add following script that executes our build:
   },
 ```
 
-Following command will run the build and start the app
+The following command will run the build and start the app
 
 ```sh
 yarn start
@@ -179,7 +179,7 @@ const typeDefs = gql`
 export default typeDefs;
 ```
 
-Note that in this case you will need to install `graphql-tag`.
+Note that in this case, you will need to install `graphql-tag`.
 
 > Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structures:
 >
