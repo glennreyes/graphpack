@@ -1,5 +1,6 @@
+![Graphpack](https://user-images.githubusercontent.com/5080854/47752201-1dead580-dc94-11e8-8028-580207f85feb.png)
+
 <div align="center">
-  <h1>Graphpack</h1>
 
 ☄️ A minimalistic zero-config GraphQL server
 
@@ -108,7 +109,7 @@ yarn start
 Runs graphpack in development mode. After a successful build your output should look something like this:
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="520" alt="graphpack">
+  <img src="https://user-images.githubusercontent.com/5080854/47042315-3e426c80-d18b-11e8-941e-e193a339e3ee.png" width="520" alt="Graphpack">
 </div>
 
 Graphpack will watch for changes in your `./src` folder and automatically reload the server.
@@ -312,6 +313,8 @@ Graphpack was heavily inspired by:
 - [backpack](https://github.com/jaredpalmer/backpack)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [next.js](https://github.com/zeit/next.js)
+
+Thanks to [@richardbmx](https://github.com/richardbmx) for designing the [logo](https://figma.com/file/XyKbNTDI9lwoJNr91l91bQ7C/Graphpack)! 🙌
 
 ## Contributors
 
