@@ -5,9 +5,10 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
+const IS_WEBPACK = typeof __webpack_modules__ === 'object';
 const hasBabelRc = fs.existsSync(path.resolve('babel.config.js'));
 
-if (hasBabelRc) {
+if (hasBabelRc && !IS_WEBPACK) {
   console.info('🐠 Using babel.config.js defined in your app root');
 }
 
