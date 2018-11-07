@@ -12,9 +12,6 @@
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0"
   },
-  "dependencies": {
-    "ts-loader": "^5.2.2"
-  },
   "workspaces": [
     "packages/*"
   ]
