@@ -94,7 +94,7 @@ Add following script that executes our build:
   },
 ```
 
-Following command will run the build and start the app
+The following command will run the build and start the app
 
 ```sh
 yarn start
@@ -179,7 +179,7 @@ const typeDefs = gql`
 export default typeDefs;
 ```
 
-Note that in this case you will need to install `graphql-tag`.
+Note that in this case, you will need to install `graphql-tag`.
 
 > Graphpack can resolve both `.js` and `.graphql` files. This means you can use any of these folder/file structures:
 >
@@ -256,23 +256,43 @@ Refer to the [Apollo Server docs](https://www.apollographql.com/docs/apollo-serv
 
 > Note that it's not possible to set `resolvers`, `typeDefs` or `context` in the config file. For this please refer to [entry files](#entry-files).
 
-#### Applying middlewares to the server
+#### Configure server port
+
+Configure the server port with:
+
+```js
+module.exports = {
+  server: {
+    port: 4000, // default,
+  },
+};
+```
+
+#### Applying express middlewares to the server
 
 In your `graphpack.config.js` add your applyMiddleware field as follows:
 
 ```js
 // graphpack.config.js
 const express = require('express');
+
 const app = express();
+
+app.get('/hello', (req, res) => {
+  res.send('Hello world!');
+});
 
 module.exports = {
   server: {
-    introspection: false,
-    playground: false,
-    applyMiddleware: { app },
+    applyMiddleware: {
+      app,
+      path: '/graphql', // default
+    },
   },
 };
 ```
+
+Your GraphQL endpoint will be available under `http://localhost:4000/graphql`. To configure the server options refer to https://www.apollographql.com/docs/apollo-server/api/apollo-server.html#ApolloServer-applyMiddleware
 
 ### Customize Webpack configuration
 

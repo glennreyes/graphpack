@@ -256,23 +256,43 @@ Refer to the [Apollo Server docs](https://www.apollographql.com/docs/apollo-serv
 
 > Note that it's not possible to set `resolvers`, `typeDefs` or `context` in the config file. For this please refer to [entry files](#entry-files).
 
-#### Applying middlewares to the server
+#### Configure server port
+
+Configure the server port with:
+
+```js
+module.exports = {
+  server: {
+    port: 4000, // default,
+  },
+};
+```
+
+#### Applying express middlewares to the server
 
 In your `graphpack.config.js` add your applyMiddleware field as follows:
 
 ```js
 // graphpack.config.js
 const express = require('express');
+
 const app = express();
+
+app.get('/hello', (req, res) => {
+  res.send('Hello world!');
+});
 
 module.exports = {
   server: {
-    introspection: false,
-    playground: false,
-    applyMiddleware: { app },
+    applyMiddleware: {
+      app,
+      path: '/graphql', // default
+    },
   },
 };
 ```
+
+Your GraphQL endpoint will be available under `http://localhost:4000/graphql`. To configure the server options refer to https://www.apollographql.com/docs/apollo-server/api/apollo-server.html#ApolloServer-applyMiddleware
 
 ### Customize Webpack configuration
 

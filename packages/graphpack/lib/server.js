@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server';
+import { ApolloServer as ApolloExpressServer } from 'apollo-server-express';
 import { context, resolvers, typeDefs } from './srcFiles';
 import { loadServerConfig } from '../config';
 
@@ -8,51 +9,40 @@ if (!(resolvers && Object.keys(resolvers).length > 0)) {
   );
 }
 
-const createOptions = serverConfig => {
-  if (serverConfig) {
-    const {
-      context: _context,
-      resolvers: _resolvers,
-      typeDefs: _typeDefs,
-      applyMiddleware,
-      ...options
-    } = serverConfig;
+const createServer = config => {
+  const { applyMiddleware, port: serverPort, ...options } = config;
+  const port = Number(process.env.PORT) || serverPort || 4000;
+  // Pull out fields that are not relevant for the apollo server
 
-    return options;
+  // Use apollo-server-express when middleware detected
+  if (
+    applyMiddleware &&
+    applyMiddleware.app &&
+    typeof applyMiddleware.app.listen === 'function'
+  ) {
+    const server = new ApolloExpressServer(options);
+    server.applyMiddleware(applyMiddleware);
+
+    return applyMiddleware.app.listen({ port }, () =>
+      console.log(
+        `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`,
+      ),
+    );
   }
 
-  return {};
+  // Use apollo-server
+  const server = new ApolloServer(options);
+
+  return server
+    .listen({ port })
+    .then(({ url }) => console.log(`🚀 Server ready at ${url}`));
 };
 
 const startServer = async () => {
   // Load server config from graphpack.config.js
-  const serverConfig = await loadServerConfig();
-  const options = createOptions(serverConfig);
+  const config = await loadServerConfig();
 
-  const server = new ApolloServer({
-    ...options,
-    context,
-    typeDefs,
-    resolvers,
-  });
-
-  // Apply user provided middlewares
-  if (
-    serverConfig &&
-    serverConfig.applyMiddleware &&
-    serverConfig.applyMiddleware.app
-  ) {
-    server.applyMiddleware(applyMiddleware);
-  }
-
-  server
-    .listen({
-      port:
-        Number(process.env.PORT) || (serverConfig && serverConfig.port)
-          ? serverConfig.port
-          : 4000,
-    })
-    .then(({ url }) => console.log(`🚀 Server ready at ${url}`));
+  createServer({ ...config, context, resolvers, typeDefs });
 };
 
 startServer();
