@@ -18,6 +18,7 @@
   "dependencies": {
     "@babel/core": "^7.1.5",
     "apollo-server": "2.1.0",
+    "apollo-server-express": "^2.1.0",
     "babel-loader": "^8.0.4",
     "babel-preset-graphpack": "^1.0.2",
     "cosmiconfig": "^5.0.6",
