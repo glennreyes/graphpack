@@ -1,6 +1,5 @@
 {
   "name": "graphpack",
-  "version": "0.1.0-alpha.1",
   "description": "☄️ A minimalistic zero-config GraphQL server",
   "author": "Glenn Reyes <glenn@glennreyes.com>",
   "repository": "https://github.com/glennreyes/graphpack",
