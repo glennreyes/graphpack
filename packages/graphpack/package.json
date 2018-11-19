@@ -9,7 +9,7 @@
     "graphpack": "./bin/graphpack.js"
   },
   "files": [
-    "babel",
+    "babel.js",
     "bin",
     "config",
     "lib"
