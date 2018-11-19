@@ -16,19 +16,19 @@
   ],
   "main": "lib/server",
   "dependencies": {
-    "@babel/core": "^7.1.5",
-    "apollo-server": "2.1.0",
-    "apollo-server-express": "^2.1.0",
+    "@babel/core": "^7.1.6",
+    "apollo-server": "2.2.2",
+    "apollo-server-express": "^2.2.2",
     "babel-loader": "^8.0.4",
     "babel-preset-graphpack": "^1.0.4",
-    "cosmiconfig": "^5.0.6",
+    "cosmiconfig": "^5.0.7",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "nodemon": "^1.18.6",
-    "ramda": "^0.25.0",
-    "webpack": "^4.25.1",
+    "ramda": "^0.26.0",
+    "webpack": "^4.26.0",
     "webpack-node-externals": "^1.7.2",
-    "yargs": "^12.0.2"
+    "yargs": "^12.0.4"
   }
 }
