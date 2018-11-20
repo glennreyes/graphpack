@@ -4,16 +4,16 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const IS_DEV = process.env.NODE_ENV !== 'production';
-const IS_WEBPACK = typeof __webpack_modules__ === 'object';
+const isDev = process.env.NODE_ENV !== 'production';
+const isWebpack = typeof __webpack_modules__ === 'object';
 const hasBabelRc = fs.existsSync(path.resolve('babel.config.js'));
 
-if (hasBabelRc && !IS_WEBPACK) {
+if (hasBabelRc && !isWebpack) {
   console.info('🐠 Using babel.config.js defined in your app root');
 }
 
 module.exports = {
-  devtool: IS_DEV ? 'sourcemap' : 'none',
+  devtool: 'source-map',
   entry: {
     // We take care of setting up entry file under lib/index.js
     index: ['graphpack'],
@@ -22,7 +22,7 @@ module.exports = {
   // its node_modules dependencies. This creates an externals function that
   // ignores node_modules when bundling in Webpack.
   externals: [nodeExternals({ whitelist: [/^graphpack$/] })],
-  mode: IS_DEV ? 'development' : 'production',
+  mode: isDev ? 'development' : 'production',
   module: {
     rules: [
       {
@@ -71,7 +71,7 @@ module.exports = {
       GRAPHPACK_SRC_DIR: path.resolve(process.cwd(), 'src'),
       NODE_ENV: 'development',
     }),
-    new FriendlyErrorsWebpackPlugin({ clearConsole: IS_DEV }),
+    new FriendlyErrorsWebpackPlugin({ clearConsole: isDev }),
   ],
   resolve: {
     extensions: ['.ts', '.js'],
