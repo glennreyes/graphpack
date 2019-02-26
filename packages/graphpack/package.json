@@ -16,10 +16,10 @@
   ],
   "main": "lib/server",
   "dependencies": {
-    "@babel/core": "^7.1.6",
+    "@babel/core": "^7.3.4",
     "apollo-server": "2.4.8",
     "apollo-server-express": "^2.4.8",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.0.5",
     "babel-preset-graphpack": "^1.0.5",
     "cosmiconfig": "^5.1.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
