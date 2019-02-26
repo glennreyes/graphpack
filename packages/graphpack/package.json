@@ -17,8 +17,8 @@
   "main": "lib/server",
   "dependencies": {
     "@babel/core": "^7.1.6",
-    "apollo-server": "2.2.3",
-    "apollo-server-express": "^2.2.3",
+    "apollo-server": "2.4.8",
+    "apollo-server-express": "^2.4.8",
     "babel-loader": "^8.0.4",
     "babel-preset-graphpack": "^1.0.5",
     "cosmiconfig": "^5.0.7",
