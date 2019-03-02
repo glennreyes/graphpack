@@ -244,7 +244,6 @@ module.exports = (mode) => {
     introspection: IS_DEV,
     playground: IS_DEV,
     mocks: IS_DEV,
-    mocks: IS_DEV,
     // ...
   }
 };
