@@ -16,7 +16,7 @@ const startDevServer = ({ compiler, config }) => {
         throw Error(error || stats.toJson().errors);
       }
 
-      nodemon({ script: serverPaths[0], watch: serverPaths }).on(
+      nodemon({ script: serverPaths[0], watch: serverPaths.concat('graphpack.config.js') }).on(
         'quit',
         process.exit,
       );
