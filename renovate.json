@@ -1,6 +1,6 @@
 {
   "extends": [
-    "automergeMinor",
+    ":automergeMinor",
     "config:js-lib"
   ]
 }
