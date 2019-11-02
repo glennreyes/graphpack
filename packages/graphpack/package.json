@@ -21,7 +21,7 @@
     "apollo-server-express": "^2.9.7",
     "babel-loader": "^8.0.6",
     "babel-preset-graphpack": "^1.0.8",
-    "cosmiconfig": "^5.2.1",
+    "cosmiconfig": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
