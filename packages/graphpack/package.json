@@ -29,6 +29,6 @@
     "ramda": "^0.26.1",
     "webpack": "^4.41.2",
     "webpack-node-externals": "^1.7.2",
-    "yargs": "^14.2.0"
+    "yargs": "^15.0.0"
   }
 }
